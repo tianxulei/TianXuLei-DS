@@ -1,0 +1,43 @@
+Node* findleft(Node* root) {
+    if (!root) return NULL;
+    if (root->left) return root->left;
+    if (root->right) return root->right;
+    return NULL;
+}
+Node* findright(Node* root) {
+    if (!root) return NULL;
+    if (root->right) return root->right;
+    if (root->left) return root->left;
+    return NULL;
+}
+Node* connect(Node* root) {
+    if (!root) return NULL;
+    Node* node = root, *flag;
+    while (node) {
+        flag = node;
+        //连接左右孩子
+        while (node) {
+            if (node->left && node->right)
+                node->left->next = node->right;
+            node = node->next;
+        }
+        node = flag;
+        //连接非同一父节点的孩子
+        while (node && node->next) {
+            if (findright(node)) {
+                Node* tmp = node->next;
+                while (tmp && !tmp->left && !tmp->right)
+                    tmp = tmp->next;
+                findright(node)->next = findleft(tmp);
+                node = tmp;
+            }
+            else node = node->next;
+        }
+        //找到下一层最左边的孩子
+        while (flag &&!findleft(flag)) {
+            flag = flag->next;
+        }
+        node = findleft(flag);
+    }
+    return root;
+}
