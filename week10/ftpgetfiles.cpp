@@ -31,7 +31,7 @@ vector<struct st_fileinfo> vlistfile4;	//本次需要下载的文件容器
 
 //加载okfilename文件中的内容到容器vlistfile1中
 bool LoadOKFile();
-
+ 
 //比较vlistfile2和vlistfile1,得到vlistfile3和vlistfile4
 bool CompVector();
 
