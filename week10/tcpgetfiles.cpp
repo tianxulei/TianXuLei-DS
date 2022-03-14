@@ -27,7 +27,7 @@ CLogFile logfile;
 void EXIT(int sig);
 
 void _help();
-
+ 
 // 把xml解析到参数starg结构中。
 bool _xmltoarg(char *strxmlbuffer);
 
