@@ -104,7 +104,7 @@ bool _ftpgetfiles()
   {
     logfile.Write("ftp.chdir(%s) failed.\n",starg.remotepath); return false;
   }
-
+ 
   //调ftp.nlist()方法列出服务器日录中的文件，结果存放到本地文件中。
   if(ftp.nlist(".",starg.listfilename)==false)
   {
