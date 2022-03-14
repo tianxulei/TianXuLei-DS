@@ -78,7 +78,7 @@ int main(int argc,char *argv[])
   logfile.Write("connect database(%s) ok.\n",argv[2]);
 
   struct st_stcode stcode;
-
+ 
   // 准备插入表的SQL语句。
   sqlstatement stmtins(&conn);
   stmtins.prepare("insert into T_ZHOBTCODE(obtid,cityname,provname,lat,lon,height,upttime) values(:1,:2,:3,:4*100,:5*100,:6*10,now())");
