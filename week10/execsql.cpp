@@ -95,7 +95,7 @@ int main(int argc,char *argv[])
 
   return 0;
 }
-
+ 
 void EXIT(int sig)
 {
   logfile.Write("程序退出，sig=%d\n\n",sig);
