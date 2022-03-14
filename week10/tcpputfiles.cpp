@@ -30,7 +30,7 @@ void _help();
 
 // 把xml解析到参数starg结构中。
 bool _xmltoarg(char *strxmlbuffer);
-
+ 
 CTcpClient TcpClient;
 
 bool Login(const char *argv);    // 登录业务。
