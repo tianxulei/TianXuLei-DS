@@ -245,7 +245,7 @@ void RecvFilesMain()
       char serverfilename[301];  memset(serverfilename,0,sizeof(serverfilename));
       strcpy(serverfilename,clientfilename);
       UpdateStr(serverfilename,starg.clientpath,starg.srvpath,false);
-
+ 
       // 接收文件的内容。
       logfile.Write("recv %s(%d) ...",serverfilename,filesize);
       if (RecvFile(TcpServer.m_connfd,serverfilename,mtime,filesize)==true)
