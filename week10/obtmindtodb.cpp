@@ -84,7 +84,7 @@ bool _obtmindtodb(char *pathname,char *connstr,char *charset)
   int  insertcount=0; // 成功插入记录数。
   CTimer Timer;       // 计时器，记录每个数据文件的处理耗时。
   bool bisxml=false;  // 文件格式，true-xml；false-csv。
-
+ 
   while (true)
   {
     // 读取目录，得到一个数据文件名。
