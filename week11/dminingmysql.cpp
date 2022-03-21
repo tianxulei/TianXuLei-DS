@@ -419,7 +419,7 @@ bool writeincfield()
     sqlstatement stmt(&conn1);
     stmt.prepare("update T_MAXINCVALUE set maxincvalue=:1 where pname=:2");
     if (stmt.m_cda.rc==1146)
-    {
+    { 
       // 如果表不存在，就创建表。
       conn1.execute("create table T_MAXINCVALUE(pname varchar(50),maxincvalue numeric(15),primary key(pname))");
       conn1.execute("insert into T_MAXINCVALUE values('%s',%ld)",starg.pname,imaxincvalue);
