@@ -114,7 +114,7 @@ bool _xmltoarg(char *strxmlbuffer)
 
   GetXMLBuffer(strxmlbuffer,"keycol",starg.keycol,30);
   if (strlen(starg.keycol)==0) { logfile.Write("keycol is null.\n"); return false; }
-
+ 
   GetXMLBuffer(strxmlbuffer,"where",starg.where,1000);
   if (strlen(starg.where)==0) { logfile.Write("where is null.\n"); return false; }
 
