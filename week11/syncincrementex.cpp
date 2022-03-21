@@ -30,7 +30,7 @@ CLogFile logfile;
 
 connection connloc;   // 本地数据库连接。
 connection connrem;   // 远程数据库连接。
-
+ 
 CTABCOLS TABCOLS;     // 读取数据字典，获取本地表全部的列信息。
 
 // 业务处理主函数。
