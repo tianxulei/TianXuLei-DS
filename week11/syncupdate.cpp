@@ -31,7 +31,7 @@ CLogFile logfile;
 
 connection connloc;   // 本地数据库连接。
 connection connrem;   // 远程数据库连接。
-
+ 
 // 业务处理主函数。
 bool _syncupdate();
  
