@@ -31,7 +31,7 @@ connection conn2;     // 用于执行插入和删除SQL语句的数据库连接�
 
 // 业务处理主函数。
 bool _migratetable();
- 
+  
 void EXIT(int sig);
 
 CPActive PActive;
