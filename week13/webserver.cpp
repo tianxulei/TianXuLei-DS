@@ -1,7 +1,5 @@
-/*
- * 程序名：webserver.cpp，此程序是数据服务总线的服务端程序。
- * 作者：吴从周
-*/
+// 此程序是数据服务总线的服务端程序
+
 #include "_public.h"
 #include "_ooci.h"
 
