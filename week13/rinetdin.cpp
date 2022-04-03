@@ -1,7 +1,5 @@
-/*
- * 程序名：rinetdin.cpp，网络代理服务程序-内网端。
- * 作者：吴从周
-*/
+//网络代理服务程序-内网端
+
 #include "_public.h"
 
 int  cmdconnsock;  // 内网程序与外网程序的控制通道。
