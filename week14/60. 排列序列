@@ -1,0 +1,35 @@
+class Solution {
+public:
+    int pos,a;
+    string str;
+    bool b;
+    vector<int>nums;
+    void dfs(int pos,int n,int k){
+        if(pos==n){
+            ++a;
+            if(a==k){
+                b=true;
+                for(int i=0;i<n;++i)
+                    str+=nums[i]+'0';
+            }
+            return;
+        }
+        for(int i=pos;i<n && b==false;++i){
+            int tmp=nums[i];
+            nums.erase(nums.begin()+i);
+            nums.insert(nums.begin()+pos,tmp);
+            dfs(pos+1,n,k);
+            nums.erase(nums.begin()+pos);
+            nums.insert(nums.begin()+i,tmp);
+        }
+    }
+    string getPermutation(int n, int k) {
+        pos=0;
+        a=0;
+        str="";
+        b=false;
+        for(int i=0;i<n;++i) nums.push_back(i+1);
+        dfs(0,n,k);
+        return str;
+    }
+};
