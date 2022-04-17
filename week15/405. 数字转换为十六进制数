@@ -1,0 +1,15 @@
+class Solution {
+public:
+    string toHex(int num) {
+        unsigned int n=num;
+        string str="0123456789abcdef";
+        string ans="";
+        while(n){
+            ans+=str[n%16];
+            n=n/16;
+        }
+        if(ans=="") ans="0";
+        reverse(ans.begin(),ans.end());
+        return ans;
+    }
+};
