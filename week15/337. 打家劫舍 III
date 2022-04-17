@@ -1,0 +1,19 @@
+class Solution {
+public:
+    
+    int rob(TreeNode* root) {
+        vector<int>ans;
+        ans=dfs(root);
+        return max(ans[0],ans[1]);
+    }
+    vector<int> dfs(TreeNode* root){
+        if(root==nullptr)
+            return vector<int>(2,0);
+        vector<int>left=dfs(root->left);
+        vector<int>right=dfs(root->right);
+        int yes,no;
+        yes=root->val+left[0]+right[0];
+        no=max(left[0],left[1])+max(right[0],right[1]);
+        return vector<int>{no,yes};
+    }
+};
