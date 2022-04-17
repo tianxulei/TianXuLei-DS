@@ -1,0 +1,18 @@
+class Solution {
+public:
+    TreeNode* sortedListToBST(ListNode* head) {
+        if(!head) return nullptr;
+        if(!head->next) return new TreeNode(head->val);
+        ListNode *slow=head,*fast=head->next->next;
+        while(fast && fast->next){
+            fast=fast->next->next;
+            slow=slow->next;
+        }
+        TreeNode* root=new TreeNode(slow->next->val);
+        fast=slow->next->next;
+        slow->next=nullptr;
+        root->left=sortedListToBST(head);
+        root->right=sortedListToBST(fast);
+        return root;
+    }
+};
