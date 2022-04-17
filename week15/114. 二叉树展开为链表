@@ -1,0 +1,13 @@
+class Solution {
+public:
+    void flatten(TreeNode* root) {
+        if(!root) return;
+        TreeNode *R=root->right,*p=root;
+        root->right=root->left;
+        root->left=nullptr;
+        flatten(root->right);
+        while(p->right) p=p->right;
+        p->right=R;
+        flatten(R);
+    }
+};
