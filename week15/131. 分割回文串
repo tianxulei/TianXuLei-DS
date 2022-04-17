@@ -1,0 +1,29 @@
+class Solution {
+public:
+    vector<string>path;
+    vector<vector<string>>ans;
+    vector<vector<bool>>dp;
+    int size;
+    void dfs(string s,int flag){
+        if(flag==size){
+            ans.emplace_back(path);
+            return;
+        }
+        for(int i=flag;i<size;++i){
+            if(dp[flag][i]){
+                path.emplace_back(s.substr(flag,i-flag+1));
+                dfs(s,i+1);
+                path.pop_back();
+            }
+        }
+    }
+    vector<vector<string>> partition(string s) {
+        size=s.size();
+        dp=vector<vector<bool>>(size,vector<bool>(size,true));
+        for(int i=size-2;i>=0;--i)
+            for(int j=i+1;j<size;++j)
+                dp[i][j]=(s[i]==s[j])&&dp[i+1][j-1];
+        dfs(s,0);
+        return ans;
+    }
+};
