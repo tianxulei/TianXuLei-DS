@@ -1,0 +1,23 @@
+class Solution {
+public:
+    bool isValidSerialization(string preorder) {
+        int ans=1;
+        bool flag=true;
+        for(auto c:preorder){
+            if(c==','){
+                flag=true;
+                continue;
+            }
+            if(flag==true){
+                --ans;
+                if(ans<0) 
+                    return false;
+                if(c!='#')
+                    ans+=2;    
+                flag=false;            
+            }
+
+        }
+        return ans==0;
+    }
+};
