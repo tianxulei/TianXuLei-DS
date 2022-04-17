@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int dfs(TreeNode* root,int sum){
+        if(!root) return 0;
+        int tmp=sum*10+root->val;
+        if(!root->left && !root->right) 
+            return tmp;
+        else
+            return dfs(root->left,tmp)+dfs(root->right,tmp);
+    }
+    int sumNumbers(TreeNode* root) {
+        return dfs(root,0);
+    }
+};
