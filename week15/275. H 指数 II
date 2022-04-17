@@ -1,0 +1,15 @@
+class Solution {
+public:
+    int hIndex(vector<int>& citations) {
+        int size=citations.size();
+        int left=0,right=size-1;
+        while(left<=right){
+            int center=(left+right)/2;
+            if(citations[center]>=size-center)
+                right=center-1;
+            else
+                left=center+1;
+        }
+        return size-left;
+    }
+};
