@@ -1,0 +1,14 @@
+class Solution {
+public:
+    int guessNumber(int n) {
+        long left=1,right=n,center=(left+right)/2,result;
+        while((result=guess(center))!=0){
+            if(result>0)
+                left=center+1;
+            else
+                right=center-1;
+            center=(left+right)/2;
+        }
+        return center;
+    }
+};
