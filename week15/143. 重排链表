@@ -1,0 +1,29 @@
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        ListNode *slow=head,*fast=head;
+        while(fast && fast->next){
+            slow=slow->next;
+            fast=fast->next->next;
+        }
+        fast=slow->next;
+        slow->next=nullptr;
+        slow=fast;
+        while(slow && slow->next)
+            slow=slow->next;
+        while(fast!=slow){
+            ListNode *tmp=fast->next;
+            fast->next=slow->next;
+            slow->next=fast;
+            fast=tmp;
+        }
+        fast=head;
+        while(slow){
+            ListNode *tmp=slow->next;
+            slow->next=fast->next;
+            fast->next=slow;
+            slow=tmp;
+            fast=fast->next->next;
+        }
+    }
+};
