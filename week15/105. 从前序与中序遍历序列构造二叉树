@@ -1,0 +1,17 @@
+class Solution {
+public:
+    unordered_map<int,int>mp;
+    TreeNode* build(vector<int>& preorder, vector<int>& inorder,int pl,int pr,int il,int ir){
+        if(pr<pl) return nullptr;
+        TreeNode* root=new TreeNode(preorder[pl]);
+        int size=mp[preorder[pl]]-il;
+        root->left=build(preorder,inorder,pl+1,pl+size,il,mp[preorder[pl]]-1);
+        root->right=build(preorder,inorder,pl+size+1,pr,mp[preorder[pl]]+1,ir);
+        return root;
+    }
+    TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
+        int n=inorder.size();
+        for(int i=0;i<n;++i) mp[inorder[i]]=i;
+        return build(preorder,inorder,0,n-1,0,n-1);
+    }
+};
